@@ -1201,8 +1201,9 @@ screen and (min-resolution: 2dppx) {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 48px 24px;
+    gap: 24px;
     flex-wrap: wrap;
+    margin-bottom: 48px;
 }
 
 .portfolio_item {
