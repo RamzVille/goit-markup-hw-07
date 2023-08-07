@@ -164,12 +164,12 @@ img {
 
 /* MAIN CONTAINER */
 .container {
-    width: 100%;
+    width: 480px;
     padding: 0 16px;
     margin: 0 auto;
 }
-/* For Tablet view */
-@media screen and (max-width: 767px) {
+/* For Mobile view */
+@media screen and (max-width: 480px) {
     .container {
         width: 100%;
     }
@@ -244,32 +244,45 @@ img {
     position: fixed;
     left: 0px;
     top: 0px;
-    width: 100%;
-    height: 100%;
-    padding-left:40px;
-    padding-top: 80px;
-    background: var(--white, #FFF);
+    width: 100vw;
+    height: 40vh;
+    /* max-width: 767px; */
+    /* padding-left:40px; */
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 2px 1px 0px rgba(46, 47, 66, 0.08);
     overflow-x: hidden;
     overflow-y: scroll;
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 500ms var(--function-transition), visibility 500ms var(--function-transition);
+    z-index: 3;
+    transform: translateY(100%);
+    background: var(--white, #FFF);
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    /* pointer-events: none; */
+    transition: transform 250ms ease-in-out;
+    /* transition: opacity 500ms var(--function-transition), visibility 500ms var(--function-transition); */
 }
-.container-mobile{
-    width: 100%;
-    display: block;
-}
+
 .mobile-menu-container.is-open {
-    opacity: 1;
+    transform: translateY(0);
+    /* opacity: 1;
     visibility: visible;
-    pointer-events: auto;
+    pointer-events: auto; */
     transition: transform 0.25s ease-out;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     /* transform: translateY(-100%); */
     
+}
+@media screen and (max-width: 380px) {
+    .mobile-menu-container {
+       z-index: 0;
+    }
+}
+@media screen and (min-width: 768px) {
+    .mobile-menu-container {
+        display: none;
+    }
 }
 .modal-close-icon {
     width: 8px;
@@ -286,6 +299,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
+    margin-bottom: auto;
 }
 
 .mobile-menu-link-active {
@@ -308,7 +322,6 @@ img {
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
-    margin-top: 284px;
 }
 
 .mobile-contact_tel {
@@ -339,7 +352,42 @@ img {
     margin-bottom: 40px;
 }
 
-/* For Tablet view */
+/* For Mobile view */
+@media screen and (max-width: 380px) {
+    .mobile-menu-container {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mobile-contact-container {
+        gap: 24px;
+        margin-top: 100px;
+    }
+
+    .mobile-social-container {
+        gap: 24px;
+        margin-top: 24px;
+    }
+    .mobile-contact_tel {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 428px) {
+    .mobile-menu-container{
+        width: 100vw;
+        height: 100vh;
+    }
+    .mobile-contact-container {
+        gap: 24px;
+        margin-top: 284px;
+    }
+    .mobile-social-container {            
+        gap: 24px;
+        margin-top: 48px;
+
+    }
+}
+
 @media screen and (max-width: 767px) {
     .mobile-contact_tel {
         font-size: 26px;
@@ -347,9 +395,15 @@ img {
     .mobile-social-container {
         gap: 24px;
     }
+    .mobile-menu-container.is-open {
+        /* display: none; */
+    }
 }
 /* For Tablet view */
 @media screen and (min-width: 768px) {
+    .mobile-menu-container{
+        display: none;
+    }
     .header-container {
         width: 768px;
             /* display: flex;
@@ -407,7 +461,13 @@ img {
     .burger-btn {
         display: none;
     }
-
+    .contact-links {
+        display: block;
+        margin: 16px 0;
+        padding: 0;
+        font-size: 16px;
+        font-weight: 400;        
+    }
 }
 
 /* HERO SECTION */
@@ -418,7 +478,7 @@ img {
     background-size: cover;
     padding: 112px 0;
     width: 100%;
-    height: 432px;
+    /* height: 432px; */
     flex-shrink: 0;
 }
 @media screen and (min-device-pixel-ratio: 2),
@@ -455,10 +515,11 @@ screen and (min-resolution: 2dppx) {
 }
 
 .hero-title {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
     letter-spacing: 0.72px;
-    margin-bottom: 72px;
+    margin-bottom: 50px;
     color: white;
     text-transform: capitalize;
 }
@@ -471,7 +532,7 @@ screen and (min-resolution: 2dppx) {
     border-radius: 4px;
     letter-spacing: 0.64px;
     background-color: var(--iris);
-    margin-bottom: 112px;
+    /* margin-bottom: 112px; */
     color: var(--white);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     cursor: pointer;
@@ -495,6 +556,12 @@ screen and (min-resolution: 2dppx) {
     }
 
     .hero-title {
+        font-size: 56px;
+        line-height: 60px;
+        letter-spacing: 1.12px;
+        margin-bottom: 72px;
+        color: white;
+        text-transform: capitalize;
         margin-bottom: 36px;
     }
 }
@@ -506,19 +573,16 @@ screen and (min-resolution: 2dppx) {
                 var(--grey, rgba(46, 47, 66, 0.70), rgba(46, 47, 66, 0.70))), url(../images/people-office.jpg);
         background-size: cover;
         padding: 188px 0;
-        width: 100%;
+        min-width: 100%;
         height: 600px;
         flex-shrink: 0;
     }
 
     .hero-title {
         font-size: 56px;
-        font-weight: 700;
         line-height: 60px;
         letter-spacing: 1.12px;
-        text-align: center;
         margin-bottom: 50px;
-        color: white;
     }
 
     .main-button {
@@ -529,7 +593,6 @@ screen and (min-resolution: 2dppx) {
 /* SECTION  */
 .section {
     padding: 96px 0;
-    /* background-color: green; */
 }
 
 .section-no-top-padding {
@@ -566,7 +629,7 @@ screen and (min-resolution: 2dppx) {
  }
 
  .benefits-title {
-     align-self: stretch;
+     /* align-self: stretch; */
      text-align: center;
      font-size: 36px;
      font-weight: 700;
@@ -596,6 +659,7 @@ screen and (min-resolution: 2dppx) {
     }
 
     .benefits-title {
+        text-align: left;
         width: 264px;
         font-size: 36px;
         font-weight: 700;
@@ -689,16 +753,22 @@ screen and (min-resolution: 2dppx) {
 }
 /* For Tablet view */
 @media screen and (min-width: 768px) and (max-width: 1557px) {
-    .section-no-top-padding {
+    /* .section-no-top-padding {
         display: none;
-    }
+    } */
 }
 
 /* For Desktop view  */
 @media screen and (min-width: 1158px) {
+    .section{
+        padding: 120px 0;
+    }
     .section-no-top-padding {
-        display: contents;
-        }
+        display:contents;
+    }
+    .section{
+        padding-bottom: 120px;
+    }
 }
 
 /* TEAM section */
@@ -857,7 +927,18 @@ screen and (min-resolution: 2dppx) {
     color: var(--ocean);
     cursor: pointer;
 }
-
+/* For Tablet view */
+@media screen and  (max-width: 380px) {
+    .customers {
+        width: 100;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+        gap: 24px;
+        /* row-gap: 24px; */
+    }
+        
+}
 /* For Tablet view */
 @media screen and (min-width: 768px) and (max-width: 1557px) {
     .customers {
@@ -896,8 +977,6 @@ screen and (min-resolution: 2dppx) {
     height: 664px;
     flex-shrink: 0;
     padding: 96px 0;
-
-
 }
 
 .footer-container {
@@ -967,7 +1046,6 @@ screen and (min-resolution: 2dppx) {
     align-items: center;
     justify-content: center;
     padding-left: 16px;
-    /* flex-direction: row; */
 }
 
 .footer-container form {
@@ -1114,9 +1192,10 @@ screen and (min-resolution: 2dppx) {
 /* For Desktop view  */
 @media screen and (min-width: 1158px) {
     .footer {
-        width: 100%;
+        min-width: 100%;
         height: 312px;
         flex-shrink: 0;
+        margin: 0 auto;
     }
     .row {
         padding-left: 156px;
@@ -1150,12 +1229,12 @@ screen and (min-resolution: 2dppx) {
 
 
 .filter {
-    width: 290px;
+    /* width: 290px; */
     gap: 24px;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    margin: 48px 0;
+    margin: 0 0 48px 0;
  
 }
 
@@ -1198,15 +1277,11 @@ screen and (min-resolution: 2dppx) {
     border: 1px solid var(--ocean);
     cursor: pointer;
 }
-.portfolio-section-no-padding{
-    padding: 0;
-}
-
 .portfolio {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     gap: 24px;
     flex-wrap: wrap;
     margin-bottom: 48px;
@@ -1294,28 +1369,24 @@ screen and (min-resolution: 2dppx) {
         display: flex;
         gap: 24px;
         justify-content: center;
-        margin: 64px 0;
+        margin: 0 0 64px 0;
     }
     
     .portfolio {
         display: flex;
         flex-wrap: wrap;
+        gap: 72px 24px;
         align-items: baseline;
         justify-content: left;
     }
     .portfolio-card {
-        min-width: 360px;
+        min-width: 350px;
     }
     .portfolio_item {
         width: 350px;
         flex-shrink: 0;
         flex-basis: calc(100% / 2 - 24px);
-        margin-bottom: 72px;
     }
-    .portfolio_item:last-child{
-        margin-bottom: 96px;
-    }
-  
 }
 /* For Desktop view  */
 @media screen and (min-width: 1158px) {
@@ -1324,7 +1395,12 @@ screen and (min-resolution: 2dppx) {
         display: flex;
         gap: 24px;
         justify-content: center;
-        margin: 72px 0;
+        margin: 0 0 72px 0;
+    }
+    .portfolio { 
+        width: 100%;
+        gap: 48px 24px;
+        margin-bottom: 0;
     }
     .portfolio-card {
         min-width: 360px;
@@ -1332,9 +1408,10 @@ screen and (min-resolution: 2dppx) {
     .portfolio_item {
         display: flex;
         width: 360px;
-        height: 420px;
+        /* height: 420px; */
         flex-basis: 0;
         flex-shrink: 0;
+        
     }
    
 }
@@ -1363,7 +1440,7 @@ screen and (min-resolution: 2dppx) {
     padding: 72px 24px 24px 24px;
     top: 50%;
     left: 50%;
-    width: 392px;
+    width: 100%;
     /* height: 584px; */
     border-radius: 4px;
     background: var(--dairy);
@@ -1472,7 +1549,7 @@ screen and (min-resolution: 2dppx) {
 
 .form-input {
     display: block;
-    width: 360px;
+    width: 100%;
     height: 40px;
     padding-top: 11px;
     padding-bottom: 11px;
@@ -1500,7 +1577,7 @@ screen and (min-resolution: 2dppx) {
 }
 
 .form-textarea {
-    width: 360px;
+    width: 100%;
     height: 120px;
     flex-shrink: 0;
     padding-top: 8px;
@@ -1564,6 +1641,7 @@ screen and (min-resolution: 2dppx) {
     position: relative;
     margin-bottom: 30px;
     font-size: 12px;
+    width: 100%;
     line-height: 1.166;
     letter-spacing: 0.01em;
     color: var(--lightslate, #8E8F99);
@@ -1573,6 +1651,7 @@ screen and (min-resolution: 2dppx) {
     position: relative;
     margin-bottom: 16px;
     font-size: 12px;
+    width: 100%;
     line-height: 1.166;
     letter-spacing: 0.01em;
     color: var(--lightslate, #8E8F99);
