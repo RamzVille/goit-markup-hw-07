@@ -266,8 +266,9 @@ img {
 
 .mobile-menu-container.is-open {
     transform: translateY(0);
-    /* opacity: 1;
     visibility: visible;
+    /* opacity: 1;
+    
     pointer-events: auto; */
     transition: transform 0.25s ease-out;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -276,7 +277,7 @@ img {
 }
 @media screen and (max-width: 380px) {
     .mobile-menu-container {
-       z-index: 0;
+      visibility: hidden;
     }
 }
 @media screen and (min-width: 768px) {
@@ -543,6 +544,19 @@ screen and (min-resolution: 2dppx) {
 
 .button:hover {
     background-color: var(--ocean);
+}
+/* For Tablet view */
+@media screen and (max-width: 380px) {
+
+    .hero-title {
+        font-size: 26px;
+        line-height: 36px;
+        /* letter-spacing: 1.12px;
+        margin-bottom: 72px;
+        color: white;
+        text-transform: capitalize;
+        margin-bottom: 36px; */
+    }
 }
 /* For Tablet view */
 @media screen and (min-width: 768px) {
